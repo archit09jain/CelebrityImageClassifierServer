@@ -3,7 +3,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.servlet.annotation.MultipartConfig;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.nio.Buffer;
 
 /**
@@ -14,35 +13,48 @@ public class CelebrityRequest {
     int age2;
     Gender gender;
     String ethinicity;
-    Object img;
+    BufferedImage img;
 
-    @JsonCreator
-    public CelebrityRequest(@JsonProperty("age1") int age1, @JsonProperty("age2") int age2,
-                            @JsonProperty("gender") Gender gender, @JsonProperty("ethinicity") String ethinicity){
-        this.age1 = age1;
-        this.age2 = age2;
-        this.gender = gender;
-        this.ethinicity = ethinicity;
-        System.out.println(age1);
-        System.out.println(age2);
-        System.out.println(gender);
-        System.out.println(ethinicity);
-        //System.out.println(img);
+    public CelebrityRequest() {
     }
 
-   /* @JsonCreator
-    public CelebrityRequest(@JsonProperty("age1") int age1, @JsonProperty("age2") int age2,
-                @JsonProperty("gender") Gender gender, @JsonProperty("ethinicity") String ethinicity, @JsonProperty("image") Object []image){
-        this.age1 = age1;
-        this.age2 = age2;
-        this.gender = gender;
-        this.ethinicity = ethinicity;
-        this.img = image[0];
-        System.out.println(age1);
-        System.out.println(age2);
-        System.out.println(gender);
-        System.out.println(ethinicity);
-        System.out.println(img);
-    }*/
+    public int getAge1() {
+        return age1;
+    }
 
+    public void setAge1(int age1) {
+        this.age1 = age1;
+    }
+
+    public int getAge2() {
+        return age2;
+    }
+
+    public void setAge2(int age2) {
+        this.age2 = age2;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+
+    public String getEthinicity() {
+        return ethinicity;
+    }
+
+    public void setEthinicity(String ethinicity) {
+        this.ethinicity = ethinicity;
+    }
+
+    public BufferedImage getImg() {
+        return img;
+    }
+
+    public void setImg(BufferedImage img) {
+        this.img = img;
+    }
 }
