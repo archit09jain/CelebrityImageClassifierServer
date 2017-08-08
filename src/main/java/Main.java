@@ -28,9 +28,7 @@ public class Main {
             } else {
             }
 
-            display(cq);
-
-            return resp;
+            return PredictUtil.getPredictions(cq);
         });
     }
 
