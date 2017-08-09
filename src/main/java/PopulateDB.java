@@ -41,9 +41,10 @@ public class PopulateDB {
 
             //System.out.println(files[0].getAbsolutePath());
 
-            ObjectId imageId = MongoDBWrapper.uploadImage(files[0].getAbsolutePath(),innerdir.getName());
-            Random random = new Random();
             celbId = celbId +1;
+            ObjectId imageId = MongoDBWrapper.uploadImage(files[0].getAbsolutePath(),Integer.toString(celbId));
+            Random random = new Random();
+
             HashMap<String,Object> hashMap = new HashMap<>();
             hashMap.put("id",celbId);
             hashMap.put("name",innerdir.getName());

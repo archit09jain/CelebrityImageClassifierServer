@@ -11,10 +11,7 @@ import com.mongodb.gridfs.GridFSInputFile;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -32,7 +29,7 @@ public class MongoDBWrapper {
     private static String DB_IP = "localhost";
     private static int PORT = 27017;
     private String userName = "sampleUser";
-    private static String database = "myDb";
+    private static String database = "celebrities";
     private String password = "password";
     private static MongoClient mongo = new MongoClient(DB_IP ,PORT);
     private MongoCredential credential = MongoCredential.createCredential(userName,database,password.toCharArray());
@@ -81,7 +78,6 @@ public class MongoDBWrapper {
     public static void findAllDocumentsWithGivenID(int _id) {
         MongoCollection<Document> collection = getMongoDatabase().getCollection(database);
 
-
     }
 
     // Upload File
@@ -120,6 +116,25 @@ public class MongoDBWrapper {
         }
     }
 
+    public static void download(String fileName) {
+        System.out.println("Calling download...");
+      //  MongoClient mongoClient = new MongoClient(new MongoClientURI("mongodb://localhost:27017"));
+
+        try {
+            MongoDatabase db = mongo.getDatabase(database);
+            GridFSBucket gridBucket = GridFSBuckets.create(db);
+
+            FileOutputStream fileOutputStream = new FileOutputStream("/Users/archit.j/Desktop/myImg.jpg");
+            gridBucket.downloadToStream(fileName, fileOutputStream);
+            fileOutputStream.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+
+        }
+    }
+
     public static  void main(String args[]) {
 
         HashMap<String,Object> hm = new HashMap<>();
@@ -128,6 +143,7 @@ public class MongoDBWrapper {
         MongoDBWrapper.getAllDocuments();
       //  ObjectId id = MongoDBWrapper.uploadImage("/Users/archit.j/Desktop/sampleTraining/adam brody/88.jpg","adam brody3");
         //MongoDBWrapper.find(id);
+        MongoDBWrapper.download(Integer.toString(1));
     }
 
 
