@@ -11,6 +11,7 @@ import com.mongodb.gridfs.GridFSInputFile;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 
+import javax.print.Doc;
 import java.io.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -29,7 +30,7 @@ public class MongoDBWrapper {
     private static String DB_IP = "localhost";
     private static int PORT = 27017;
     private String userName = "sampleUser";
-    private static String database = "celebrities";
+    private static String database = "celebrities2";
     private String password = "password";
     private static MongoClient mongo = new MongoClient(DB_IP ,PORT);
     private MongoCredential credential = MongoCredential.createCredential(userName,database,password.toCharArray());

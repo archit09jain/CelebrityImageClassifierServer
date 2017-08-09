@@ -48,7 +48,6 @@ public class PopulateDB {
             HashMap<String,Object> hashMap = new HashMap<>();
             hashMap.put("id",celbId);
             hashMap.put("name",innerdir.getName());
-            hashMap.put("imageObjecId",imageId);
             hashMap.put("age",random.nextInt(200));
             hashMap.put("gender","MALE");
             hashMap.put("ethinicity","ASIAN");
