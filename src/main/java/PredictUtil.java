@@ -9,10 +9,10 @@ import java.util.List;
  */
 public class PredictUtil {
 
-    public static void filterCelebrities(Predictions ps, CelebrityRequest cq){
-        List<CelebrityDetail> tempCl = new ArrayList<>();
+    public static void filterCelebrities(Predictions ps, UserRequest cq){
+        List<Celebrity> tempCl = new ArrayList<>();
         tempCl.addAll(ps.getCelebrities());
-        for(CelebrityDetail p : tempCl){
+        for(Celebrity p : tempCl){
             if(p.getAge() < cq.getAge1()
                     || p.getAge() > cq.getAge2()
                     || !(cq.getGender().equals(Gender.ALL) || p.getGender().equals(cq.getGender()))
@@ -24,7 +24,7 @@ public class PredictUtil {
         }
     }
 
-    public static Predictions getPredictionsObject(CelebrityRequest cq){
+    public static Predictions getPredictionsObject(UserRequest cq){
         Predictions predictions = new Predictions();
         predictions.setAge(PredictAge.getPredictedAge(cq.img));
         predictions.setGender(PredictGender.getPredictedGender(cq.img));
@@ -35,7 +35,7 @@ public class PredictUtil {
         return predictions;
     }
 
-    public static String getPredictions(CelebrityRequest cq){
+    public static String getPredictions(UserRequest cq){
         String json = "";
         try {
             json = new ObjectMapper().writeValueAsString(getPredictionsObject(cq));

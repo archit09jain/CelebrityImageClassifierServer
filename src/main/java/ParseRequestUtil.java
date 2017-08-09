@@ -1,11 +1,8 @@
-import com.fasterxml.jackson.databind.ObjectMapper;
-import jdk.internal.util.xml.impl.Input;
 import spark.Request;
 import spark.utils.IOUtils;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
-import javax.servlet.http.Part;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringWriter;
@@ -13,7 +10,7 @@ import java.io.StringWriter;
 /**
  * Created by mohit.sh on 08/08/17.
  */
-public class Utils {
+public class ParseRequestUtil {
 
     public static String getStringForPart(Request req, String partName){
         InputStream ip = null;
@@ -29,8 +26,8 @@ public class Utils {
         return writer.toString();
     }
 
-    public static CelebrityRequest loadCelebrityRequest(Request req){
-        CelebrityRequest cq = new CelebrityRequest();
+    public static UserRequest loadCelebrityRequest(Request req){
+        UserRequest cq = new UserRequest();
         cq.setAge1(Integer.parseInt(getStringForPart(req, "age1")));
         cq.setAge2(Integer.parseInt(getStringForPart(req, "age2")));
         cq.setEthinicity(getStringForPart(req, "ethinicity"));

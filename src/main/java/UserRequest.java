@@ -8,15 +8,12 @@ import java.nio.Buffer;
 /**
  * Created by mohit.sh on 08/08/17.
  */
-public class CelebrityRequest {
+public class UserRequest {
     int age1;
     int age2;
     Gender gender;
     String ethinicity;
     BufferedImage img;
-
-    public CelebrityRequest() {
-    }
 
     public int getAge1() {
         return age1;

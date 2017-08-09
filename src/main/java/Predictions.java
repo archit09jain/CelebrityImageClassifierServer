@@ -7,7 +7,7 @@ public class Predictions {
     int age;
     Gender gender;
     String ethinicity;
-    List<CelebrityDetail> celebrities;
+    List<Celebrity> celebrities;
 
     public int getAge() {
         return age;
@@ -33,11 +33,11 @@ public class Predictions {
         this.ethinicity = ethinicity;
     }
 
-    public List<CelebrityDetail> getCelebrities() {
+    public List<Celebrity> getCelebrities() {
         return celebrities;
     }
 
-    public void setCelebrities(List<CelebrityDetail> celebrities) {
+    public void setCelebrities(List<Celebrity> celebrities) {
         this.celebrities = celebrities;
     }
 }
