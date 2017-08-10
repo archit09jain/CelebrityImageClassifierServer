@@ -16,7 +16,7 @@ import java.util.List;
 public class DataFetch {
 
     public static List<Celebrity> getCelebrityData(List<Integer> IDs, List<Integer> prs){
-        MongoClient mongoClient = new MongoClient(new MongoClientURI("mongodb://172.16.44.249:27017"));
+        MongoClient mongoClient = DBConnect.getInstance();
         BasicDBObject inQuery = new BasicDBObject();
         inQuery.put("id", new BasicDBObject("$in", IDs));
         MongoDatabase database = mongoClient.getDatabase("celebrities2");
@@ -43,7 +43,6 @@ public class DataFetch {
                     Base64.getEncoder().encodeToString(output.toByteArray())));
             i++;
         }
-        mongoClient.close();
         return l;
     }
 }
