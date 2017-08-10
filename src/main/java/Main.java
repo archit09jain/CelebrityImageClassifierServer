@@ -1,14 +1,16 @@
 import spark.Request;
-
 import javax.servlet.MultipartConfigElement;
-
 import static spark.Spark.get;
 import static spark.Spark.post;
 
 
 public class Main {
 
+    static CorsFilter corsFilter = new CorsFilter();
+
     public static void main(String[] args) {
+
+        corsFilter.apply();
         get("/ping", (req, res) -> {
             res.type("application/json");
             return "{\"message\" :\"pong\"}";

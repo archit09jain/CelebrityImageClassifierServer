@@ -1,9 +1,4 @@
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import javax.servlet.annotation.MultipartConfig;
 import java.awt.image.BufferedImage;
-import java.nio.Buffer;
 
 /**
  * Created by mohit.sh on 08/08/17.
