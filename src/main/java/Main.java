@@ -19,6 +19,8 @@ public class Main {
         post("/predictions", "multipart/form-data", (request, response) -> {
             response.type("application/json");
             setMultiPartConfig(request);
+            //System.out.println(request.body());
+            //System.out.println(request.body());
             UserRequest cq = ParseRequestUtil.loadCelebrityRequest(request);
 
             if (cq == null) {

@@ -7,7 +7,16 @@ public class Predictions {
     int age;
     Gender gender;
     String ethinicity;
+    String originalImgB64;
     List<Celebrity> celebrities;
+
+    public String getOriginalImgB64() {
+        return originalImgB64;
+    }
+
+    public void setOriginalImgB64(String originalImgB64) {
+        this.originalImgB64 = originalImgB64;
+    }
 
     public int getAge() {
         return age;
